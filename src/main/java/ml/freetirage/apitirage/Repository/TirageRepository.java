@@ -1,4 +1,7 @@
 package ml.freetirage.apitirage.Repository;
 
-public interface TirageRepository {
+import ml.freetirage.apitirage.Model.Tirage;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TirageRepository extends JpaRepository<Tirage, Long> {
 }
