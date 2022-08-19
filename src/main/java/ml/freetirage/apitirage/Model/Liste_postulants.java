@@ -22,6 +22,4 @@ public class Liste_postulants {
     @Column(name = "date_postulants")
     private Date date;
 
-    @ManyToOne
-    private Liste_postulants liste_postulants;
 }

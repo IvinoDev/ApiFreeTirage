@@ -21,11 +21,16 @@ public class Postulants {
     @Column(name = "mail_postulant")
     private String mail_postulant;
 
+
+    /*@ManyToOne
+    @JoinColumn(name = "id_list_postulants")
+    private Liste_postulants id_list_postulants;*/
+
     /* @OneToMany
     @JoinColumn(name="liste_postulants", referencedColumnName = "id_list_postulants")
     private Liste_postulants liste_postulants; */
 
-    public Postulants(){}
+   /* public Postulants(){}
     public Postulants(Long id, String nom_postulant, String prenom_postulant, String numero_postulant, String mail_postulant) {
         this.id = id;
         this.nom_postulant = nom_postulant;
@@ -72,5 +77,5 @@ public class Postulants {
 
     public void setMail_postulant(String mail_postulant) {
         this.mail_postulant = mail_postulant;
-    }
+    } */
 }

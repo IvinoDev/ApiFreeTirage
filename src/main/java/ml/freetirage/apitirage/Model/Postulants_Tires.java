@@ -19,6 +19,7 @@ public class Postulants_Tires {
 
 
     @ManyToOne
+    @JoinColumn(name = "id_tirage")
     private Tirage tirage;
 
 

@@ -24,4 +24,7 @@ public class Tirage {
     @Column(name = "date")
     private Date date;
 
+    @ManyToOne
+    @JoinColumn(name = "id_list_postulants")
+    private Liste_postulants id_list_postulants;
 }

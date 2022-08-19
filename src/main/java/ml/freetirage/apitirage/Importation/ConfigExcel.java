@@ -18,7 +18,7 @@ public class ConfigExcel {
     static String listeExcel = "Postulants";
 
     // Vérification que le fichier est bien un fichier Excel
-    public static Boolean verifier(MultipartFile file) {
+    public static Boolean verification(MultipartFile file) {
         if (Type.equals(file.getContentType())) {
             return true;
         } else {
