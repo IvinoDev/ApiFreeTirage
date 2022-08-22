@@ -6,22 +6,22 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "postulants_tires")
 public class Postulants_Tires {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_post_tires")
-    private Long id;
-
+    Long id;
+    @Column(name = "nom_postulant")
+    private String nom;
+    @Column(name = "prenom_postulant")
+    private String prenom;
+    @Column(name = "numero_postulant")
+    private String numero;
+    @Column(name = "email_postulant")
+    private String email;
 
     @ManyToOne
     @JoinColumn(name = "id_tirage")
-    private Tirage tirage;
-
-
+    Tirage tirage;
 
 }

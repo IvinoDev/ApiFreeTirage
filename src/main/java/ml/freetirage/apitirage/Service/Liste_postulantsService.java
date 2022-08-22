@@ -1,10 +1,17 @@
 package ml.freetirage.apitirage.Service;
 
 import ml.freetirage.apitirage.Model.Liste_postulants;
-
-import java.util.List;
+import org.springframework.stereotype.Service;
 
 public interface Liste_postulantsService {
-    Liste_postulants CreerListe(Liste_postulants liste_postulants);
-    List<Liste_postulants> AfficherListe();
+
+    // Création d'une Liste de postulants
+    Liste_postulants creerListe(Liste_postulants liste_postulants);
+
+    // Mise à jour de la Liste de postulants
+    Liste_postulants updateListe(Liste_postulants liste_postulants);
+
+    // Retrouver une liste à travers son libellé
+    Liste_postulants retrouveParLibelle(String libelle);
+
 }

@@ -4,14 +4,12 @@ package ml.freetirage.apitirage.Model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Table(name="Tirage")
 public class Tirage {
     @Id
@@ -20,11 +18,20 @@ public class Tirage {
     private Long id;
 
     @Column(name = "libelle_tirage", unique = true)
-    private String libelle_tirage;
+    private String libelle;
     @Column(name = "date")
     private Date date;
 
-    @ManyToOne
-    @JoinColumn(name = "id_list_postulants")
-    private Liste_postulants id_list_postulants;
+
+
+    /*@ManyToOne
+    @JoinColumn(name = "id_liste_postulants")
+    private Liste_postulants liste_postulants; */
+    @OneToOne
+    @JoinColumn(name = "id_liste_postulants")
+    private Liste_postulants liste_postulants;
+
+
+    @OneToMany(mappedBy = "tirage")
+    List<Postulants_Tires> postulants_Tires = new ArrayList<>();
 }
