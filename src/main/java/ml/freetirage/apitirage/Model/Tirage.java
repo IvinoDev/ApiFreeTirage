@@ -32,6 +32,6 @@ public class Tirage {
     private Liste_postulants liste_postulants;
 
 
-    @OneToMany(mappedBy = "tirage")
-    List<Postulants_Tires> postulants_Tires = new ArrayList<>();
+    /*@OneToMany(mappedBy = "tirage")
+    List<Postulants_Tires> postulants_Tires = new ArrayList<>();*/
 }

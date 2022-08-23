@@ -9,5 +9,6 @@ public interface TirageService {
 
     // Modification d'un tirage
     Tirage modifierTirage(Tirage tirage);
+    Tirage getTirageById(long id);
 
 }
