@@ -20,4 +20,9 @@ public class TirageServiceImpl implements TirageService {
     public Tirage modifierTirage(Tirage tirage) {
         return repos.save(tirage);
     }
+
+    @Override
+    public Tirage getTirageById(long id) {
+        return repos.findById(id).orElseThrow();
+    }
 }

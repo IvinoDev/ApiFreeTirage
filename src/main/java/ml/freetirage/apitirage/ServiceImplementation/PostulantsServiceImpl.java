@@ -72,13 +72,16 @@ import java.util.Random;
                 //retourne un nombre aléatoire en fonction de la taille du tableau
                 Integer idCoisi = rd.nextInt(list.size());
 
-                if (idCoisi == 0 || listId.contains(idCoisi)) {
-                    idCoisi = rd.nextInt(list.size());
-                }
+                //if (idCoisi == 0 || listId.contains(idCoisi)) {
+                  //  idCoisi = rd.nextInt(list.size());
+               // }
                 // ajout a la liste des ids
                 listId.add(idCoisi);
+
                 // ajout du postulant dans la liste de postulant trié
                 liste_postulants.add(list.get(idCoisi));
+                list.remove(list.get(idCoisi));
+
 
             }
 
