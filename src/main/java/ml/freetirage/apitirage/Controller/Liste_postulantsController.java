@@ -62,18 +62,6 @@ public class Liste_postulantsController {
                     p.setListe_postulants(lpsave);
                     postulantsService.creerPostulants(p);
 
-                    //cas de Many to many
-                    /*if (postulantsService.RetrouveParMail(p.getEmail()) == null) {
-                        Postulants pc = PostulantsService.creerPostulant(p);
-
-                        p.getListe_postulants().add(lp);
-                        lp.getPostulants().add(pc);
-
-                    } else {
-                        Postulants pc = postulantsService.RetrouveParMail(p.getEmail());
-                        lp.getPostulants().add(pc);
-
-                    } */
 
                 }
 

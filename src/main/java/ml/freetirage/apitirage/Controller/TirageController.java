@@ -1,8 +1,7 @@
 package ml.freetirage.apitirage.Controller;
 
 import Message.ResponseMessage;
-import ml.freetirage.apitirage.Model.Liste_postulants;
-import ml.freetirage.apitirage.Model.Postulants;
+
 import ml.freetirage.apitirage.Model.Postulants_Tires;
 import ml.freetirage.apitirage.Model.Tirage;
 import ml.freetirage.apitirage.Service.Liste_postulantsService;
