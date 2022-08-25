@@ -27,15 +27,20 @@ public class Postulants {
 
     @ManyToOne
    private Liste_postulants liste_postulants;
+}
 
     //@JsonIgnore
-    /*@ManyToMany(mappedBy = "postulants")
-    List<Liste_postulants> liste_postulants = new ArrayList<>();*/
 
-    /* @OneToMany
+/*@ManyToMany(mappedBy = "postulants")
+    List<Liste_postulants> liste_postulants = new ArrayList<>();*//*
+
+
+    */
+/* @OneToMany
     @JoinColumn(name="liste_postulants", referencedColumnName = "id_list_postulants")
     private Liste_postulants liste_postulants; */
 
 
 
-}
+
+

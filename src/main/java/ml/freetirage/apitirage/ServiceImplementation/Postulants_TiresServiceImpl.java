@@ -1,6 +1,5 @@
 package ml.freetirage.apitirage.ServiceImplementation;
 
-import ml.freetirage.apitirage.Model.Liste_postulants;
 import ml.freetirage.apitirage.Model.Postulants_Tires;
 import ml.freetirage.apitirage.Model.Tirage;
 import ml.freetirage.apitirage.Repository.Postulants_TiresRepository;
@@ -8,7 +7,6 @@ import ml.freetirage.apitirage.Service.Postulants_TiresService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Id;
 import java.util.List;
 
 @Service
@@ -31,6 +29,7 @@ public class Postulants_TiresServiceImpl implements Postulants_TiresService {
         public List<Postulants_Tires> findByTirage(Tirage tirage) {
                 return repos.findByTirage(tirage);
         }
+
 
 
 

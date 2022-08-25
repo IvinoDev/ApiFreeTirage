@@ -1,6 +1,5 @@
 package ml.freetirage.apitirage.Service;
 
-import ml.freetirage.apitirage.Model.Liste_postulants;
 import ml.freetirage.apitirage.Model.Postulants_Tires;
 import ml.freetirage.apitirage.Model.Tirage;
 import org.springframework.stereotype.Service;
@@ -11,5 +10,7 @@ public interface Postulants_TiresService {
     Postulants_Tires creerPostulantTire(Postulants_Tires postulants_tires);
     List<Postulants_Tires> postulants_tires();
 
-    List<Postulants_Tires> findByTirage(Tirage tirage);
+    List<Postulants_Tires> findByTirage(Tirage t);
+
+
 }

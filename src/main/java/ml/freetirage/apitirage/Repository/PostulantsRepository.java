@@ -17,5 +17,6 @@ public interface PostulantsRepository extends JpaRepository<Postulants, Long> {
     @Query(value = "SELECT * FROM user ORDER BY RAND() LIMIT : nombre", nativeQuery = true)
     List<Postulants> Aleatoire(@Param("nombre") Integer nombre);
 
+
 }
 

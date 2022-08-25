@@ -10,5 +10,6 @@ import java.util.List;
 @Repository
 public interface Postulants_TiresRepository extends JpaRepository<Postulants_Tires, Long> {
 
+
     List<Postulants_Tires> findByTirage(Tirage tirage);
 }

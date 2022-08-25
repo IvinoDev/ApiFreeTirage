@@ -2,6 +2,7 @@ package ml.freetirage.apitirage.Service;
 
 import ml.freetirage.apitirage.Model.Liste_postulants;
 import ml.freetirage.apitirage.Model.Postulants;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,5 +22,8 @@ public interface PostulantsService {
 
     // trirage aléatoire
     List<Postulants> tirage(List<Postulants> list, int nombre, Liste_postulants listepostulants);
+
+
+
 
 }

@@ -14,4 +14,5 @@ public interface Liste_postulantsService {
     // Retrouver une liste à travers son libellé
     Liste_postulants retrouveParLibelle(String libelle);
 
+    void supprimer(Long id);
 }
