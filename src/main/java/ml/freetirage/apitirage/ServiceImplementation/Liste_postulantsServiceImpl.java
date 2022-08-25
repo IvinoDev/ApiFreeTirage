@@ -24,6 +24,11 @@ public class Liste_postulantsServiceImpl implements Liste_postulantsService {
     }
 
     @Override
+    public void supprimer(Long id) {
+        repos.deleteById(id);
+    }
+
+    @Override
     public Liste_postulants updateListe(Liste_postulants liste_postulants) {
         // TODO Auto-generated method stub
         return repos.save(liste_postulants);

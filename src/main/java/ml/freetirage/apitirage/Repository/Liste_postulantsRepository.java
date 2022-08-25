@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface Liste_postulantsRepository extends JpaRepository<Liste_postulants, Long>{
+
     Liste_postulants findByLibelle(String libelle);
 }

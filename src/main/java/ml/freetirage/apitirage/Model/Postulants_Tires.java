@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 
+
 @Entity
 @Data
 @Table(name = "postulants_tires")
@@ -25,3 +26,4 @@ public class Postulants_Tires {
     Tirage tirage;
 
 }
+
