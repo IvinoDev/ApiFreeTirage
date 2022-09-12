@@ -4,8 +4,10 @@ import ml.freetirage.apitirage.Message.ResponseMessage;
 import ml.freetirage.apitirage.Importation.ConfigExcel;
 import ml.freetirage.apitirage.Model.Liste_postulants;
 import ml.freetirage.apitirage.Model.Postulants;
+import ml.freetirage.apitirage.Repository.PostulantsRepository;
 import ml.freetirage.apitirage.Service.Liste_postulantsService;
 import ml.freetirage.apitirage.Service.PostulantsService;
+import ml.freetirage.apitirage.Service.Postulants_TiresService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,12 +23,16 @@ import java.util.List;
 @Controller
 @CrossOrigin(origins = "http://localhost:4200/")
 public class Liste_postulantsController {
+    @Autowired
+    PostulantsRepository postulantsRepository;
 
     @Autowired
     Liste_postulantsService service;
 
     @Autowired
     PostulantsService postulantsService;
+    @Autowired
+    Postulants_TiresService postulants_tiresService;
 
     @GetMapping("/afficher")
     public ResponseEntity<Object> afficher() {
@@ -49,7 +55,7 @@ public class Liste_postulantsController {
                                              @PathVariable(value = "nombre") Integer nombre)
             throws IOException {
 
-        // on verifie d'abord si le fichier fornit est de type Excel
+        // on verifie d'abord si le fichier fournit est de type Excel
         if (ConfigExcel.verification(file)) {
             // vérification de la présence d'une liste dans la BDD
             Liste_postulants liste_postulants = service.retrouveParLibelle(libelle);
@@ -74,8 +80,8 @@ public class Liste_postulantsController {
                     p.setListe_postulants(lpsave);
                     postulantsService.creerPostulants(p);
 
-
                 }
+
 
                 return ResponseMessage.generateResponse("Tirage effectué", HttpStatus.OK,
                         postulantsService.tirage(postulants, nombre,lpsave));

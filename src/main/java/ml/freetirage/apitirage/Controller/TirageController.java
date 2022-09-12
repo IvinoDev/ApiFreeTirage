@@ -41,6 +41,7 @@ public class TirageController {
         if (T != null) {
             List<Postulants_Tires> postulants_tires = ptservice.findByTirage(T);
 
+            //postulantsService.supprimer(postulants_tires.get());
             // attribution du tirage
             return ResponseMessage.generateResponse("La liste des postulants selectionnées", HttpStatus.OK, postulants_tires);
 

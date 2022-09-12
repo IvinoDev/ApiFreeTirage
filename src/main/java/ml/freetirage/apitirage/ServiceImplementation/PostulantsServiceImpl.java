@@ -70,20 +70,20 @@ import java.util.Random;
             List<Integer> listId = new ArrayList<>();
             for (int i = 0; i < nombre; i++) {
                 //retourne un nombre aléatoire en fonction de la taille du tableau
-                Integer idCoisi = rd.nextInt(list.size());
+                Integer idChoisi = rd.nextInt(list.size());
 
                 /*if (idCoisi == 0 || listId.contains(idCoisi)) {
                     idCoisi = rd.nextInt(list.size());
                 }*/
                 // ajout a la liste des ids
-                listId.add(idCoisi);
+                listId.add(idChoisi);
                 // ajout du postulant dans la liste de postulant trié
-                liste_postulants.add(list.get(idCoisi));
-                list.remove(list.get(idCoisi));
+                liste_postulants.add(list.get(idChoisi));
+                list.remove(list.get(idChoisi));
 
             }
 
-            // creation du trie
+            // creation du tirage
             Tirage tirage = new Tirage();
             tirage.setDate(new Date());
             tirage.setLibelle("Tirage sur " +listepostulants.getLibelle());
@@ -104,6 +104,7 @@ import java.util.Random;
                 postulants_tires.setNumero(liste_postulants.get(i).getNumero());
                 postulants_tires.setEmail(liste_postulants.get(i).getEmail());
 
+
                 ptRepos.save(postulants_tires);
             }
 
@@ -111,6 +112,8 @@ import java.util.Random;
             return liste_postulants;
 
         }
+
+
     }
 
 

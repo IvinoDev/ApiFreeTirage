@@ -11,4 +11,6 @@ public interface Postulants_TiresService {
     List<Postulants_Tires> postulants_tires();
 
     List<Postulants_Tires> findByTirage(Tirage t);
+
+
 }
