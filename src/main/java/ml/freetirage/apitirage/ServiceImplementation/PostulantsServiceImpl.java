@@ -86,7 +86,7 @@ import java.util.Random;
             // creation du trie
             Tirage tirage = new Tirage();
             tirage.setDate(new Date());
-            tirage.setLibelle("Resultat" +listepostulants.getLibelle());
+            tirage.setLibelle("Tirage sur " +listepostulants.getLibelle());
 
             //Attribution de la clé de la liste au tirage
             tirage.setListe_postulants(listepostulants);

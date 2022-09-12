@@ -1,6 +1,6 @@
 package ml.freetirage.apitirage.Controller;
 
-import Message.ResponseMessage;
+import ml.freetirage.apitirage.Message.ResponseMessage;
 import ml.freetirage.apitirage.Importation.ConfigExcel;
 import ml.freetirage.apitirage.Model.Liste_postulants;
 import ml.freetirage.apitirage.Model.Postulants;
@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -22,6 +19,7 @@ import java.util.List;
 
 @RequestMapping("/liste_postulants")
 @Controller
+@CrossOrigin(origins = "http://localhost:4200/")
 public class Liste_postulantsController {
 
     @Autowired
@@ -29,6 +27,20 @@ public class Liste_postulantsController {
 
     @Autowired
     PostulantsService postulantsService;
+
+    @GetMapping("/afficher")
+    public ResponseEntity<Object> afficher() {
+
+        try {
+            return ResponseMessage.generateResponse("ok", HttpStatus.OK, service.afficher());
+
+        } catch (Exception e) {
+            // TODO: handle exception
+            return ResponseMessage.generateResponse("Erreur",
+                    HttpStatus.OK, null);
+        }
+
+    }
 
     // Création d'une liste
     @PostMapping("/creer/{libelle}/{nombre}")

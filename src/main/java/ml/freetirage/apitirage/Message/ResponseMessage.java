@@ -1,4 +1,4 @@
-package Message;
+package ml.freetirage.apitirage.Message;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
