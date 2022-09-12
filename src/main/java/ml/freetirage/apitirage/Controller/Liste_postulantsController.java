@@ -45,7 +45,6 @@ public class Liste_postulantsController {
             return ResponseMessage.generateResponse("Erreur",
                     HttpStatus.OK, null);
         }
-
     }
 
     // Création d'une liste
