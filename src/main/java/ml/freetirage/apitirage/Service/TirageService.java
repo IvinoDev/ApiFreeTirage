@@ -12,5 +12,7 @@ public interface TirageService {
 
     Tirage getTirageById(long id);
 
+    Iterable<Object[]> afficherTirage();
+
 }
 

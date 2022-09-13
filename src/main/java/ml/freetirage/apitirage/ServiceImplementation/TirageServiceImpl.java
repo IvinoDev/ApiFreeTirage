@@ -25,4 +25,9 @@ public class TirageServiceImpl implements TirageService {
     public Tirage getTirageById(long id) {
         return repos.findById(id).orElseThrow();
     }
+
+    @Override
+    public Iterable<Object[]> afficherTirage() {
+        return repos.TousTirages();
+    }
 }

@@ -17,5 +17,7 @@ public interface Liste_postulantsService {
     // Retrouver une liste à travers son libellé
     Liste_postulants retrouveParLibelle(String libelle);
 
-    List<Liste_postulants> afficher();
+    //List<Liste_postulants> afficher();
+    Iterable<Object[]> afficher();
+
 }

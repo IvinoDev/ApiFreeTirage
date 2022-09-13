@@ -20,8 +20,8 @@ import java.util.Date;
 import java.util.List;
 
 @RequestMapping("/liste_postulants")
-@Controller
-@CrossOrigin(origins = "http://localhost:4200/")
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class Liste_postulantsController {
     @Autowired
     PostulantsRepository postulantsRepository;
@@ -34,17 +34,21 @@ public class Liste_postulantsController {
     @Autowired
     Postulants_TiresService postulants_tiresService;
 
-    @GetMapping("/afficher")
+    /*@GetMapping("/afficher")
     public ResponseEntity<Object> afficher() {
 
         try {
             return ResponseMessage.generateResponse("ok", HttpStatus.OK, service.afficher());
 
         } catch (Exception e) {
-            // TODO: handle exception
-            return ResponseMessage.generateResponse("Erreur",
+            return ResponseMessage.generateResponse("Erreur, aucune liste présente",
                     HttpStatus.OK, null);
         }
+    }*/
+
+    @GetMapping("/afficher")
+    public Iterable<Object[]> getToutesListe(){
+        return service.afficher();
     }
 
     // Création d'une liste

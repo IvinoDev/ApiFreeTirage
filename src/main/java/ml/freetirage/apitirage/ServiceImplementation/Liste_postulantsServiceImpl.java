@@ -26,9 +26,13 @@ public class Liste_postulantsServiceImpl implements Liste_postulantsService {
     }
 
     @Override
+    public Iterable<Object[]> afficher() {
+        return repos.ToutesListe();
+    }
+    /*@Override
     public List<Liste_postulants> afficher() {
         return repos.findAll();
-    }
+    }*/
 
     @Override
     public Liste_postulants updateListe(Liste_postulants liste_postulants) {
