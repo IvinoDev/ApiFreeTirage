@@ -1,7 +1,10 @@
 package ml.freetirage.apitirage.Service;
 
 import ml.freetirage.apitirage.Model.Liste_postulants;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 public interface Liste_postulantsService {
 
@@ -14,5 +17,5 @@ public interface Liste_postulantsService {
     // Retrouver une liste à travers son libellé
     Liste_postulants retrouveParLibelle(String libelle);
 
-    void supprimer(Long id);
+    List<Liste_postulants> afficher();
 }

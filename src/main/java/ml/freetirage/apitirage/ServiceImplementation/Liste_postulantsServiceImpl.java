@@ -6,6 +6,8 @@ import ml.freetirage.apitirage.Service.Liste_postulantsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class Liste_postulantsServiceImpl implements Liste_postulantsService {
     @Autowired
@@ -24,8 +26,8 @@ public class Liste_postulantsServiceImpl implements Liste_postulantsService {
     }
 
     @Override
-    public void supprimer(Long id) {
-        repos.deleteById(id);
+    public List<Liste_postulants> afficher() {
+        return repos.findAll();
     }
 
     @Override
