@@ -10,8 +10,8 @@ import java.util.List;
 @Repository
 public interface TirageRepository extends JpaRepository<Tirage, Long> {
 
-    @Query(value = "SELECT DISTINCT tirage.nptire, tirage.date, tirage.libelle_tirage FROM tirage,liste_postulants WHERE  tirage.id_liste_postulants=?", nativeQuery = true);
-    List<Object> DetailsTirage();
+     @Query(value = "SELECT tirage.nptire, tirage.date, tirage.libelle_tirage, liste_postulants.libelle_postulants FROM `tirage`,`liste_postulants` WHERE  tirage.id_liste_postulants=?",nativeQuery = true)
+    public List<Object> DetailsTirage();
 
 
     //Methode pour afficher tous les tirages existants
