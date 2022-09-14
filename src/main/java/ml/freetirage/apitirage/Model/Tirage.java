@@ -21,6 +21,8 @@ public class Tirage {
     private String libelle;
     @Column(name = "date")
     private Date date;
+
+    private int NPTire;
     @ManyToOne
     @JoinColumn(name = "id_liste_postulants")
     Liste_postulants liste_postulants;

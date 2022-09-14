@@ -32,6 +32,11 @@ public class TirageServiceImpl implements TirageService {
     }
 
     @Override
+    public Long nombrePT(Long id_tirage) {
+        return repos.nombrePT(id_tirage);
+    }
+
+    @Override
     public Iterable<Object[]> nombreTirage() {
         return repos.NombreTirage();
     }

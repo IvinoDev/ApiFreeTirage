@@ -86,6 +86,7 @@ import java.util.Random;
             // creation du tirage
             Tirage tirage = new Tirage();
             tirage.setDate(new Date());
+            tirage.setNPTire(nombre);
             tirage.setLibelle("Tirage " +listepostulants.getLibelle());
 
             //Attribution de la clé de la liste au tirage

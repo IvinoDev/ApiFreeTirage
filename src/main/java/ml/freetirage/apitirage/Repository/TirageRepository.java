@@ -15,4 +15,7 @@ public interface TirageRepository extends JpaRepository<Tirage, Long> {
     //Fonction pour compter l'ensemble des tirages existants
     @Query(value = "SELECT COUNT(*) FROM tirage", nativeQuery = true)
     Iterable<Object[]> NombreTirage();
+
+    @Query(value = "SELECT COUNT(id_tirage) FROM postulants_tires WHERE postulants_tires.id_tirage=:id_tirage", nativeQuery = true)
+    Long nombrePT(Long id_tirage);
 }

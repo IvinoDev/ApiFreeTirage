@@ -12,6 +12,8 @@ public interface TirageService {
 
     Tirage getTirageById(long id);
 
+    Long nombrePT(Long id_tirage);
+
     Iterable<Object[]> afficherTirage();
 
     Iterable<Object[]> nombreTirage();
