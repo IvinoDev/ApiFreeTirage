@@ -20,4 +20,5 @@ public interface Liste_postulantsService {
     //List<Liste_postulants> afficher();
     Iterable<Object[]> afficher();
 
+    Iterable<Object[]> nombreListe();
 }

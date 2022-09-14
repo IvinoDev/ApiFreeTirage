@@ -36,6 +36,11 @@ public class TirageController {
         return service.afficherTirage();
     }
 
+    @GetMapping("/nombre")
+    public Iterable<Object[]> getNombreListe(){
+        return service.nombreTirage();
+    }
+
     // Création d'un tirage
     @GetMapping("/afficher/{id_tirage}")
     public ResponseEntity<Object> afficher(@PathVariable(value = "id_tirage") Long id_tirage) {

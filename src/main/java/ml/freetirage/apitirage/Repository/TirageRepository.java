@@ -7,7 +7,12 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TirageRepository extends JpaRepository<Tirage, Long> {
-    @Query(value = "SELECT * FROM tirage", nativeQuery = true)
 
+    //Methode pour afficher tous les tirages existants
+    @Query(value = "SELECT * FROM tirage", nativeQuery = true)
     Iterable<Object[]> TousTirages();
+
+    //Fonction pour compter l'ensemble des tirages existants
+    @Query(value = "SELECT COUNT(*) FROM tirage", nativeQuery = true)
+    Iterable<Object[]> NombreTirage();
 }

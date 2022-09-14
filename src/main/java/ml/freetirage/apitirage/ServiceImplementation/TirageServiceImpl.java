@@ -30,4 +30,9 @@ public class TirageServiceImpl implements TirageService {
     public Iterable<Object[]> afficherTirage() {
         return repos.TousTirages();
     }
+
+    @Override
+    public Iterable<Object[]> nombreTirage() {
+        return repos.NombreTirage();
+    }
 }

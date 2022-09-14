@@ -51,6 +51,11 @@ public class Liste_postulantsController {
         return service.afficher();
     }
 
+    @GetMapping("/nombre")
+    public Iterable<Object[]> getNombreListe(){
+        return service.nombreListe();
+    }
+
     // Création d'une liste
     @PostMapping("/creer/{libelle}/{nombre}")
     public ResponseEntity<Object> creerListe(@RequestParam("file") MultipartFile file,
