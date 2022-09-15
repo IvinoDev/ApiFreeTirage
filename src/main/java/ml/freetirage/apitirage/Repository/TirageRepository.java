@@ -1,5 +1,6 @@
 package ml.freetirage.apitirage.Repository;
 
+import ml.freetirage.apitirage.Model.Liste_postulants;
 import ml.freetirage.apitirage.Model.Tirage;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -25,5 +26,5 @@ public interface TirageRepository extends JpaRepository<Tirage, Long> {
     @Query(value = "SELECT COUNT(id_tirage) FROM postulants_tires WHERE postulants_tires.id_tirage=:id_tirage", nativeQuery = true)
     Long nombrePT(Long id_tirage);
 
-
+    List<Tirage> findByListePostulants (Liste_postulants liste_postulants);
 }

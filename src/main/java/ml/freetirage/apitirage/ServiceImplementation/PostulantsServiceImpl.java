@@ -90,7 +90,7 @@ import java.util.Random;
             tirage.setLibelle("Tirage " +listepostulants.getLibelle());
 
             //Attribution de la clé de la liste au tirage
-            tirage.setListe_postulants(listepostulants);
+            tirage.setListePostulants(listepostulants);
 
             // enregistrement du tirage
             Tirage tirageSave = tirageRepos.save(tirage);

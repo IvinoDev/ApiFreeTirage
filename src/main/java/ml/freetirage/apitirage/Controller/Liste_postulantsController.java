@@ -4,6 +4,7 @@ import ml.freetirage.apitirage.Message.ResponseMessage;
 import ml.freetirage.apitirage.Importation.ConfigExcel;
 import ml.freetirage.apitirage.Model.Liste_postulants;
 import ml.freetirage.apitirage.Model.Postulants;
+import ml.freetirage.apitirage.Repository.Liste_postulantsRepository;
 import ml.freetirage.apitirage.Repository.PostulantsRepository;
 import ml.freetirage.apitirage.Service.Liste_postulantsService;
 import ml.freetirage.apitirage.Service.PostulantsService;
@@ -30,6 +31,9 @@ public class Liste_postulantsController {
     Liste_postulantsService service;
 
     @Autowired
+    Liste_postulantsRepository liste_postulantsRepository;
+
+    @Autowired
     PostulantsService postulantsService;
     @Autowired
     Postulants_TiresService postulants_tiresService;
@@ -54,6 +58,21 @@ public class Liste_postulantsController {
     @GetMapping("/nombre")
     public Iterable<Object[]> getNombreListe(){
         return service.nombreListe();
+    }
+
+    @GetMapping("/listes")
+    public List<Liste_postulants> getAllLists(){
+        return service.getAllLists();
+    }
+
+    @GetMapping("/{id}")
+    public Liste_postulants getListById(@PathVariable Long id){
+        return liste_postulantsRepository.findById(id).get();
+    }
+
+    @PostMapping("/ajout_le/{libelle}/{nombre}")
+    public Liste_postulants creerListExist(@RequestBody Liste_postulants list_postulants, @PathVariable String libelle, @PathVariable int nombre){
+        return service.ajoutListExist(list_postulants, libelle, nombre);
     }
 
     // Création d'une liste
@@ -85,7 +104,7 @@ public class Liste_postulantsController {
                 //assert postulants != null;
                 for (Postulants p : postulants) {
 
-                    p.setListe_postulants(lpsave);
+                    p.setLp(lpsave);
                     postulantsService.creerPostulants(p);
 
                 }

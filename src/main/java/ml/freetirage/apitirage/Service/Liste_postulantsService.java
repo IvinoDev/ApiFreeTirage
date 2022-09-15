@@ -21,4 +21,8 @@ public interface Liste_postulantsService {
     Iterable<Object[]> afficher();
 
     Iterable<Object[]> nombreListe();
+
+    Liste_postulants ajoutListExist(Liste_postulants list_postulants, String libelle, int nombre);
+
+    List<Liste_postulants> getAllLists();
 }
