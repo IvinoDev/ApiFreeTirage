@@ -11,6 +11,7 @@ public class TirageServiceImpl implements TirageService {
     @Autowired
     TirageRepository repos;
 
+
     @Override
     public Tirage creerTirage(Tirage tirage) {
         return repos.save(tirage);
@@ -34,5 +35,10 @@ public class TirageServiceImpl implements TirageService {
     @Override
     public Iterable<Object[]> nombreTirage() {
         return repos.NombreTirage();
+    }
+
+    @Override
+    public Long nbreTirageSurUneListe(Long idListPost) {
+        return repos.nbreTirageSurUneListe(idListPost);
     }
 }

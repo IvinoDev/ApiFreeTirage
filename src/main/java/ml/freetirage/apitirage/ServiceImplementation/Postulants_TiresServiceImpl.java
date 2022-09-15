@@ -30,7 +30,10 @@ public class Postulants_TiresServiceImpl implements Postulants_TiresService {
                 return repos.findByTirage(tirage);
         }
 
-
+        @Override
+        public List<Postulants_Tires> lister() {
+                return repos.findAll();
+        }
 
 
 }

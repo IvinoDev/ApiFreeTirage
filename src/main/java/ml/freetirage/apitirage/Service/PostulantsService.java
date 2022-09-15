@@ -21,7 +21,7 @@ public interface PostulantsService {
     List<Postulants> listeAleatoire(int nombre);
 
     // trirage aléatoire
-    List<Postulants> tirage(List<Postulants> list, int nombre, Liste_postulants listepostulants);
+    List<Postulants> tirage(List<Postulants> list, int nombre, Liste_postulants listepostulants,String libelleTirage);
 
 
 

@@ -15,5 +15,7 @@ public interface TirageService {
     Iterable<Object[]> afficherTirage();
 
     Iterable<Object[]> nombreTirage();
+
+    Long nbreTirageSurUneListe(Long idListPost);
 }
 

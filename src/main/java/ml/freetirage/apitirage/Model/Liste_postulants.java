@@ -1,10 +1,10 @@
 package ml.freetirage.apitirage.Model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
-
-
-
+import java.util.List;
 
 
 @Entity
@@ -19,6 +19,11 @@ public class Liste_postulants {
     private String libelle;
     @Column(name = "date_postulants")
     private Date date;
+
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "liste_postulants")
+    List<Postulants> postulants = new ArrayList<>();
 }
 
     /*@ManyToMany
@@ -29,7 +34,9 @@ public class Liste_postulants {
             }
     )
 
-    //List<Postulants> postulants = new ArrayList<>();
+
+     */
+
 
     /*@OneToMany(mappedBy = "liste_postulants")
     List<Tirage> tirages = new ArrayList<>();*/

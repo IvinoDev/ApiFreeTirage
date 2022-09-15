@@ -21,4 +21,5 @@ public interface Liste_postulantsService {
     Iterable<Object[]> afficher();
 
     Iterable<Object[]> nombreListe();
+    List<Liste_postulants> lister();
 }

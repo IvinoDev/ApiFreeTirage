@@ -18,7 +18,7 @@ import java.util.List;
 
 @RequestMapping("/tirage")
 @RestController
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "http://localhost:4200")
 public class TirageController {
     @Autowired
     TirageService service;
@@ -39,6 +39,14 @@ public class TirageController {
     @GetMapping("/nombre")
     public Iterable<Object[]> getNombreListe(){
         return service.nombreTirage();
+    }
+    @GetMapping("/lister")
+    public List<Postulants_Tires> lister() {
+        return ptservice.lister();
+    }
+    @GetMapping("/totaltirageSurList/{idListPost}")
+    public Long nbreTirageSurUneListe(@PathVariable Long idListPost) {
+        return service.nbreTirageSurUneListe(idListPost);
     }
 
     // Création d'un tirage

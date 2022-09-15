@@ -4,6 +4,7 @@ import ml.freetirage.apitirage.Message.ResponseMessage;
 import ml.freetirage.apitirage.Importation.ConfigExcel;
 import ml.freetirage.apitirage.Model.Liste_postulants;
 import ml.freetirage.apitirage.Model.Postulants;
+import ml.freetirage.apitirage.Model.Tirage;
 import ml.freetirage.apitirage.Repository.PostulantsRepository;
 import ml.freetirage.apitirage.Service.Liste_postulantsService;
 import ml.freetirage.apitirage.Service.PostulantsService;
@@ -55,6 +56,26 @@ public class Liste_postulantsController {
     public Iterable<Object[]> getNombreListe(){
         return service.nombreListe();
     }
+    @GetMapping("/liste")
+    public  List<Liste_postulants> lister(){
+        return  service.lister();
+    }
+
+    @PostMapping("/{libelle}/{nombre}")
+    public ResponseEntity<Object> creerTirage(@RequestBody Tirage tirage, @PathVariable(value = "libelle") String libelle,
+                                              @PathVariable(value = "nombre") Integer nombre){
+
+        Liste_postulants liste=service.retrouveParLibelle(libelle);
+        if(liste!=null){
+            return ResponseMessage.generateResponse("Tirage effectué", HttpStatus.OK,
+                    postulantsService.tirage(liste.getPostulants(), nombre,liste, tirage.getLibelle()));
+        }else {
+            return ResponseMessage.generateResponse("Cette liste n'existe pas.", HttpStatus.OK, null);
+
+        }
+
+    }
+
 
     // Création d'une liste
     @PostMapping("/creer/{libelle}/{nombre}")
@@ -92,7 +113,7 @@ public class Liste_postulantsController {
 
 
                 return ResponseMessage.generateResponse("Tirage effectué", HttpStatus.OK,
-                        postulantsService.tirage(postulants, nombre,lpsave));
+                        postulantsService.tirage(postulants, nombre,lpsave,null));
 
             } else {
                 // Au cas ou il existe une liste avec le même libellé

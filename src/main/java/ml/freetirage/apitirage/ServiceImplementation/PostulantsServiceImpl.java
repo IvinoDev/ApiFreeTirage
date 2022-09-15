@@ -58,7 +58,7 @@ import java.util.Random;
         }
 
         @Override
-        public List<Postulants> tirage(List<Postulants> list, int nombre, Liste_postulants listepostulants) {
+        public List<Postulants> tirage(List<Postulants> list, int nombre, Liste_postulants listepostulants, String libelleTirage) {
             // Declaration d'une liste qui va retourner les postulants
             List<Postulants> liste_postulants = new ArrayList<>();
             System.out.println(list.size());
@@ -86,7 +86,11 @@ import java.util.Random;
             // creation du tirage
             Tirage tirage = new Tirage();
             tirage.setDate(new Date());
-            tirage.setLibelle("Tirage " +listepostulants.getLibelle());
+            if(libelleTirage==null){
+                tirage.setLibelle("Tirage " +listepostulants.getLibelle());
+            }else {
+                tirage.setLibelle(libelleTirage);
+            }
 
             //Attribution de la clé de la liste au tirage
             tirage.setListe_postulants(listepostulants);

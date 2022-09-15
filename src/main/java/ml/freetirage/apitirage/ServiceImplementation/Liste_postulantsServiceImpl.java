@@ -34,6 +34,11 @@ public class Liste_postulantsServiceImpl implements Liste_postulantsService {
     public Iterable<Object[]> nombreListe() {
         return repos.NombreListe();
     }
+
+    @Override
+    public List<Liste_postulants> lister() {
+        return repos.findAll();
+    }
     /*@Override
     public List<Liste_postulants> afficher() {
         return repos.findAll();
