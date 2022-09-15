@@ -26,7 +26,7 @@ public class Postulants {
     private String email;
 
     @ManyToOne
-   private Liste_postulants liste_postulants;
+   private Liste_postulants lp;
 }
 
     //@JsonIgnore

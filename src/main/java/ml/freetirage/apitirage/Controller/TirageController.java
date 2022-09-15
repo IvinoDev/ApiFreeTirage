@@ -2,8 +2,11 @@ package ml.freetirage.apitirage.Controller;
 
 import ml.freetirage.apitirage.Message.ResponseMessage;
 
+import ml.freetirage.apitirage.Model.Liste_postulants;
 import ml.freetirage.apitirage.Model.Postulants_Tires;
 import ml.freetirage.apitirage.Model.Tirage;
+import ml.freetirage.apitirage.Repository.Liste_postulantsRepository;
+import ml.freetirage.apitirage.Repository.TirageRepository;
 import ml.freetirage.apitirage.Service.Liste_postulantsService;
 import ml.freetirage.apitirage.Service.PostulantsService;
 import ml.freetirage.apitirage.Service.Postulants_TiresService;
@@ -31,6 +34,12 @@ public class TirageController {
     @Autowired
     Postulants_TiresService ptservice;
 
+    @Autowired
+    TirageRepository tirageRepository;
+
+    @Autowired
+    Liste_postulantsRepository liste_postulantsRepository;
+
     @GetMapping("/afficher")
     public Iterable<Object[]> getTousTirages(){
         return service.afficherTirage();
@@ -47,6 +56,17 @@ public class TirageController {
     @GetMapping("/totaltirageSurList/{idListPost}")
     public Long nbreTirageSurUneListe(@PathVariable Long idListPost) {
         return service.nbreTirageSurUneListe(idListPost);
+    }
+
+    @GetMapping("/nombre_pt/{id_tirage}")
+    public Long getNombrePT(@PathVariable Long id_tirage){
+        return service.nombrePT(id_tirage);
+    }
+
+    @GetMapping("/liste/{id}")
+    public List<Tirage> findByList (@PathVariable Long id) {
+        Liste_postulants liste_postulants = liste_postulantsRepository.findById(id).get();
+        return tirageRepository.findByListePostulants(liste_postulants);
     }
 
     // Création d'un tirage

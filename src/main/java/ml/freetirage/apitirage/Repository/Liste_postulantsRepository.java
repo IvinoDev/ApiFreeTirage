@@ -17,4 +17,5 @@ public interface Liste_postulantsRepository extends JpaRepository<Liste_postulan
     //Fonction pour compter l'ensemble des listes existantes
     @Query(value = "SELECT COUNT(*) FROM liste_postulants", nativeQuery = true)
     Iterable<Object[]> NombreListe();
+
 }
